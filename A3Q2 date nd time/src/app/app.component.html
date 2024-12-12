@@ -1,0 +1,31 @@
+<h1>Notepad</h1>
+
+<p>Current Date and Time: {{ currentDateTime }}</p>
+
+<textarea 
+  [(ngModel)]="noteContent" 
+  placeholder="Write your note here..." 
+  rows="4" 
+  style="width: 100%; margin-bottom: 10px;">
+</textarea>
+
+<button (click)="addNote()">Add Note</button>
+
+<h2>Notes</h2>
+
+<table style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px;">Note</th>
+      <th style="border: 1px solid #ddd; padding: 8px;">Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let note of notes">
+      <td style="border: 1px solid #ddd; padding: 8px;">{{ note.content }}</td>
+      <td style="border: 1px solid #ddd; padding: 8px;">{{ note.timestamp }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<router-outlet />
